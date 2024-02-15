@@ -1,0 +1,10 @@
+<Products>
+    <Product type="0">
+        <Name>Cheese Pizza</Name>
+        <Price>7.50</Price>
+    </Product>
+    <Product type="1">
+        <Name>Pepperoni Pizza</Name>
+        <Price>9.50</Price>
+    </Product>
+</Products>
