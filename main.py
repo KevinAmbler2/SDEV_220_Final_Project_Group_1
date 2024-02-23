@@ -1,19 +1,46 @@
-import xml.etree.ElementTree as ET
-import Product
+'''
+Hunter - Homepage window + Window superclass
+Kevin - Menu and Cart windows + Menu and Cart classes
+Mang - Checkout window + Order class
+Argyrios - Initial creation of window objects and managing styling
 
-orders = {}
+'''
+import tkinter as tk
+from tkinter import ttk
+from Images import *
+from HomePage import *
+from MenuCartPage import *
+from CheckoutPage import *
 
-def parseProducts():
-    products_xml = ET.parse("Products.xml")
-    products_root = products_xml.getroot()
 
-    for product_xml in products_root.findall("Order"):
-        product_type = int(product_xml.get("type"))
-        product = Product(product_type, product_xml)
-        orders[product_type] = product
+class PizzaApp(tk.Tk):
+    def __init__(self):
+        tk.Tk.__init__(self)
+        self.title("Luigi's Pizzeria")
+        self.geometry("800x600")
 
-def main():
-    parseProducts()
+        # Loading images directly with Tkinter
+        self.images = {name: tk.PhotoImage(file=path) for name, path in image_paths.items()}
+        
+        container = tk.Frame(self)
+        container.pack(side="top", fill="both", expand=True)
+        container.grid_rowconfigure(0, weight=1)
+        container.grid_columnconfigure(0, weight=1)
 
-if __name__ == "main":
-    main()
+        self.frames = {}
+        for F in (HomePage, MenuCartPage, CheckoutPage):
+            page_name = F.__name__
+            frame = F(parent=container, controller=self)
+            self.frames[page_name] = frame
+            frame.grid(row=0, column=0, sticky="nsew")
+
+        self.show_frame("HomePage")
+
+    def show_frame(self, page_name):
+        frame = self.frames[page_name]
+        frame.tkraise()
+
+
+if __name__ == "__main__":
+    app = PizzaApp()
+    app.mainloop()
