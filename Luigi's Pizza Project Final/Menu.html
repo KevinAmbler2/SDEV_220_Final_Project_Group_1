@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+  
 <head>
 <title>Luigi's Pizza :: Menu</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Luigi's Pizza. The best pizza in town for the last 50 years.">
-<link rel="stylesheet" href="Luigi's.css">
-<script
-src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Luigi's Pizza. The best pizza in town for the last 50 years.">
+    <link rel="stylesheet" href="Luigi's.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
+    
 <body>
+    
 <header>
 <h1><a href="HomePage.html">Luigi's Pizza</a></h1>
 </header>
+    
 <nav>
 <ul>
 <li><a href="HomePage.html">Home</a></li>
@@ -22,14 +24,41 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
 <li><a href="Checkout.html">Checkout</a></li>
 </ul>
 </nav>
+    
 <div id="wrapper">
 <div id="neapolitan"></div>
+    
 <main>
+<h2>Our Menu</h2>
+    
+<!-- Must be implemented in the views.py file, I will include the code for it there -->
+<table>
+  <thead>
+    <tr>
+      <th>Price</th>
+      <th>Item</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in menu_data %}
+      <tr>
+        <td>{{ row.0 }}</td>
+        <td>{{ row.1 }}</td>
+        <td>{{ row.2 }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+    
 </main>
+    
 <footer>
 <br>Copyright &copy; 50 Years Luigi's Pizza<br>
     <a href="mailto:luigispizza.com">luigispizza.com</a>
 </footer>
+    
 </div>
+    
 </body>
 </html>
