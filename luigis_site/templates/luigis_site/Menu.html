@@ -26,12 +26,31 @@
         <div id="wrapper">
             <div id="neapolitan"></div>
             <main>
-                {% for menuItem in menuItems %}
-                    {{ menuItem.itemInfo }}
-                    <!--add quantity entry box same line-->
-                    <!--add button same line-->
-                    <br>
-                {% endfor %}
+                <!--use a grid/table to organize-->
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th></th>
+                    </tr>
+                    {% for menuItem in menuItems %}
+                        <tr>
+                            <td>{{ menuItem.name }}</td>
+                            <td>{{ menuItem.description }}</td>
+                            <td>${{ menuItem.price }}</td>
+                            <form method="post" class="menu-form">{% csrf_token %}
+                                <td>{{ form.as_p }}</td>
+                                <td><button type="submit" class="save btn btn-secondary">Add</button></td>
+                            </form>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <form id="buttons" class="continue" action="http://127.0.0.1:8000/cart/">
+                    <button type="submit">Continue</button>
+                </form>
+                <br><br>
             </main>
             <footer>
                 <br>

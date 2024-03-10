@@ -6,6 +6,7 @@ class MenuItem(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField()
     price = models.FloatField()
+    quantity = models.IntegerField()
 
     def publish(self):
         self.save()
@@ -20,7 +21,6 @@ class MenuItem(models.Model):
 
 class CartItem(models.Model):
     name = models.CharField(max_length=50)
-    description = models.TextField()
     price = models.FloatField()
     quantity = models.IntegerField()
 
@@ -28,7 +28,7 @@ class CartItem(models.Model):
         self.save()
     
     def itemInfo(self):
-        return (str(self.name) + " " + self.description + 
+        return (str(self.name) + " " + 
             " $" + str(self.price) + " " + self.quantity)
     
     def __str__(self):
