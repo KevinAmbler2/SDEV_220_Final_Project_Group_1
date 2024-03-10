@@ -27,29 +27,29 @@
             <div id="neapolitan"></div>
             <main>
                 <!--use a grid/table to organize-->
-                <table>
-                    <tr>
-                        <th>Item</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th></th>
-                    </tr>
-                    {% for menuItem in menuItems %}
+                <form action="http://127.0.0.1:8000/cart/">
+                    <table>
                         <tr>
-                            <td>{{ menuItem.name }}</td>
-                            <td>{{ menuItem.description }}</td>
-                            <td>${{ menuItem.price }}</td>
-                            <!--button to create CartItem instance with name, price, and input quantity-->
-                            <form method="post" class="menu-form">{% csrf_token %}
-                                <td>{{ form.as_p }}</td>
-                                <td><button type="submit">Add</button></td>
-                            </form>
+                            <th>Item</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
                         </tr>
-                    {% endfor %}
-                </table>
-                <form id="buttons" class="continue" action="http://127.0.0.1:8000/cart/">
-                    <button type="submit">Continue</button>
+                        {% for menuItem in menuItems %}
+                            <tr>
+                                <td>{{ menuItem.name }}</td>
+                                <td>{{ menuItem.description }}</td>
+                                <td>${{ menuItem.price }}</td>
+                                <td><input type="number" name="qty_{{ menuItem.id }}" value="" /></td>
+                            </tr>
+                        {% endfor %}
+                        <tr>
+                            <td class="buttonRow"></td>
+                            <td class="buttonRow"></td>
+                            <td class="buttonRow"></td>
+                            <td class="buttonRow"><button class="continueBtn" type="submit">Continue</button></td>
+                        </tr>
+                    </table>
                 </form>
                 <br><br>
             </main>

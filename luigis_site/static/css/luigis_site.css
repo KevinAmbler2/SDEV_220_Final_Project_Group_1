@@ -86,13 +86,8 @@ dt { color: #002171;
      font-weight: bold;
 }
 
-section { padding-left: 0.5em; 
-          padding-right: 0.5em; 
-}
-
 form { display: flex;
-       flex-direction: column;
-       padding-left: 1em; width: 80%; }
+       flex-direction: column;min-width: 100%;}
 
 input { margin-bottom: 0.5px; }
 
@@ -104,15 +99,17 @@ video { float: right;
 
 table { width: 90%;
         margin: auto;
-        border: 1px solid #3399CC;
         border-collapse: collapse; }
 
 td, th { border: 0.5px solid #3399CC;
          padding: 5px; }
 
 td { text-align: center; }
+.buttonRow {border: none;background-color: #75c1ee;}
 
 tr:nth-of-type(even) { background-color: #DFEDF8; }
+
+.continueBtn, .backBtn {width: 120px;align-items: center;}
 
 .travel { color: #1976D2;
           font-size: 1.2em;
@@ -236,9 +233,9 @@ figcaption { font-weight: bold;
              font-size: 1.5em; }
 
 
-#buttons {padding: 5px;max-width: 100px;}
+/*#buttons {padding: 5px;max-width: 100px;}
 #buttons.back {float: left;}
-#buttons.continue {float: right;}
+#buttons.continue {float: right;}*/
 
 #mobile { display: inline; }
 
@@ -283,5 +280,6 @@ figcaption { font-weight: bold;
            padding-left: 10% }
   #wrapper { align-items: center;
              margin: auto;
-             width: 80% }
+             width: 80%;
+             }
 }

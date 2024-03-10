@@ -8,19 +8,22 @@ def homePage(request):
     return render(request, 'luigis_site/homepage.html', {})
 
 def menuPage(request):
-    menuItems = MenuItem.objects.all().order_by('name')
+    menuItems = MenuItem.objects.all().order_by('id')
 #    if request.method == "POST":
 #        form = MenuForm(request.POST)
 #        if form.is_valid():
-#            post = form.save(commit=False)
-#            post.save()
+#            item = form.save(commit=False)         
+#            item.price = menuItems.filter(id=form.id)[0].price
+#            item.save()
+#            print(item)
 #    else:
 #        form = MenuForm()
-    form = MenuForm()
-    return render(request, 'luigis_site/menu.html', {'menuItems': menuItems,'form': form})
+#    form = MenuForm()
+#    return render(request, 'luigis_site/menu.html', {'menuItems': menuItems,'form': form})
+    return render(request, 'luigis_site/menu.html', {'menuItems': menuItems})
 
 def cartPage(request):
-    cartItems = CartItem.objects.all().order_by('name')
+    cartItems = CartItem.objects.all().order_by('id')
     return render(request, 'luigis_site/cart.html', {'cartItems': cartItems})
 
 def checkoutPage(request):

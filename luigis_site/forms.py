@@ -7,4 +7,4 @@ class MenuForm(forms.ModelForm):
         self.fields['quantity'].label = ""
     class Meta:
         model = MenuItem
-        fields = ('quantity',)
+        fields = ('quantity','id',)

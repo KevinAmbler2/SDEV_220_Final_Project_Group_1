@@ -26,30 +26,41 @@
         <div id="wrapper">
             <div id="newyork"></div>
             <main>
-                <table>
-                    <tr>
-                        <th>Item</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th></th>
-                    </tr>
-                    {% for cartItem in cartItems %}
+                {% for menuItem in menuItems %}
+                    <!--check quantity, create CartItem object if quantity not= 0-->
+                {% endfor %}
+                <form action="http://127.0.0.1:8000/checkout/">
+                    <table>
                         <tr>
-                            <td>{{ cartItem.name }}</td>
-                            <td>${{ cartItem.price }}</td>
-                            <td>{{ cartItem.quantity }}</td>
-                            <!--button to remove from list and refresh page-->
-                            <form method="post" class="cart-form">{% csrf_token %}
-                                <td><button type="submit">Remove</button></td>
-                            </form>
+                            <th>Item</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th></th>
                         </tr>
-                    {% endfor %}
-                </table>
-                <form id="buttons" class="back" action="http://127.0.0.1:8000/menu/">
-                    <button type="submit">Back</button>
-                </form>
-                <form id="buttons" class="continue" action="http://127.0.0.1:8000/checkout/">
-                    <button type="submit">Continue</button>
+                        {% for cartItem in cartItems %}
+                            <tr>
+                                <td>{{ cartItem.name }}</td>
+                                <td>${{ cartItem.price }}</td>
+                                <td>{{ cartItem.quantity }}</td>
+                                <!--button to remove from list and refresh page-->
+                                <form method="post" class="cart-form">{% csrf_token %}
+                                    <td><button type="submit">Remove</button></td>
+                                </form>
+                            </tr>
+                        {% endfor %}
+                        <tr class="buttonRow">
+                            <td class="buttonRow">
+                                <form action="http://127.0.0.1:8000/menu/" class="backBtn">
+                                    <button class="backBtn" type="submit">Back</button>
+                                </form>
+                            </td>
+                            <td class="buttonRow"></td>
+                            <td class="buttonRow"></td>
+                            <td class="buttonRow">
+                                <button class="continueBtn" type="submit">Continue</button>
+                            </td>
+                        </tr>
+                    </table>
                 </form>
                 <br><br>
             </main>

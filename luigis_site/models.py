@@ -7,6 +7,7 @@ class MenuItem(models.Model):
     description = models.TextField()
     price = models.FloatField()
     quantity = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
 
     def publish(self):
         self.save()
@@ -24,6 +25,7 @@ class CartItem(models.Model):
     description = models.TextField(null=True,blank=True)
     price = models.FloatField()
     quantity = models.IntegerField()
+    id = models.IntegerField(primary_key=True)
 
     def publish(self):
         self.save()
