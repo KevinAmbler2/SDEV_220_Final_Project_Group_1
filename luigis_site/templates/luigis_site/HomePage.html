@@ -11,10 +11,12 @@
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
         </script>-->
     </head>
+    
     <body>
         <header>
             <h1><a href="http://127.0.0.1:8000/">Luigi's Pizza</a></h1>
         </header>
+        
         <nav>
             <ul>
                 <li><a href="http://127.0.0.1:8000/">Home</a></li>
@@ -23,10 +25,21 @@
                 <li><a href="http://127.0.0.1:8000/checkout/">Checkout</a></li>
             </ul>
         </nav>
+        
         <div id="wrapper">
             <div id="chicago"></div>
+            
             <main>
+                <h1>Welcome to Luigi's Pizza!</h1>
+                <div id="pizza1" style="padding: 2em;"></div>
+                <p style = "padding-right: 1em;">Welcome to Luigi's Pizza, a place where passion meets tradition. Since our establishment in 1974, Luigi's Pizza has been serving mouthwatering pizzas that have become a beloved culinary tradition in our community. We take pride in our rich history and the secret family recipes that have been passed down for generations. Our story began with Luigi himself, a passionate Italian immigrant who brought his love for authentic flavors and handcrafted pizzas to our vibrant city. Today, we continue his legacy, crafting each pizza with the same dedication and attention to detail that Luigi instilled in us.</p>
+
+                <p style = "padding-right: 1em;">At Luigi's Pizza, we believe in using only the finest, freshest ingredients to create pizzas that are bursting with flavor. Our dough is made from scratch daily, ensuring a light and crispy crust that serves as the perfect base for our signature toppings. From classic Pepperoni to Hawaiian, our menu offers a wide range of options to satisfy every pizza lover's palate.</p>
+                
+                <h2>Order a pizza today!</h2>
+                <p style = "padding-right: 1em;">Ordering from Luigi's Pizza is a breeze. Simply explore our menu, customize your pizza with your favorite toppings, and select from our convenient delivery or pickup options. We value your satisfaction and guarantee fast, friendly service that will leave you craving another slice. Join us on this delicious journey and experience the taste of tradition at Luigi's Pizza.</p>
             </main>
+            
             <footer>
                 <br>
                 Copyright &copy; 50 Years Luigi's Pizza<br>
@@ -34,11 +47,12 @@
                 <div>
                     <script>
                         $(document).ready(function() {
-                        $("footer div").html("This page was last motified on:"+document.lastModified);
+                        $("footer div").html("This page was last modified on:"+document.lastModified);
                         });
                     </script>
                 </div>
             </footer>
+            
         </div>
     </body>
 </html>
