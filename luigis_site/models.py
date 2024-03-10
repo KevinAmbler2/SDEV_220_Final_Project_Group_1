@@ -21,6 +21,7 @@ class MenuItem(models.Model):
 
 class CartItem(models.Model):
     name = models.CharField(max_length=50)
+    description = models.TextField(null=True,blank=True)
     price = models.FloatField()
     quantity = models.IntegerField()
 

@@ -40,9 +40,10 @@
                             <td>{{ menuItem.name }}</td>
                             <td>{{ menuItem.description }}</td>
                             <td>${{ menuItem.price }}</td>
+                            <!--button to create CartItem instance with name, price, and input quantity-->
                             <form method="post" class="menu-form">{% csrf_token %}
                                 <td>{{ form.as_p }}</td>
-                                <td><button type="submit" class="save btn btn-secondary">Add</button></td>
+                                <td><button type="submit">Add</button></td>
                             </form>
                         </tr>
                     {% endfor %}

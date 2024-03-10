@@ -26,6 +26,25 @@
         <div id="wrapper">
             <div id="newyork"></div>
             <main>
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th></th>
+                    </tr>
+                    {% for cartItem in cartItems %}
+                        <tr>
+                            <td>{{ cartItem.name }}</td>
+                            <td>${{ cartItem.price }}</td>
+                            <td>{{ cartItem.quantity }}</td>
+                            <!--button to remove from list and refresh page-->
+                            <form method="post" class="cart-form">{% csrf_token %}
+                                <td><button type="submit">Remove</button></td>
+                            </form>
+                        </tr>
+                    {% endfor %}
+                </table>
                 <form id="buttons" class="back" action="http://127.0.0.1:8000/menu/">
                     <button type="submit">Back</button>
                 </form>
@@ -41,7 +60,7 @@
                 <div>
                     <script>
                         $(document).ready(function() {
-                        $("footer div").html("This page was last motified on:"+document.lastModified);
+                            $("footer div").html("This page was last motified on:"+document.lastModified);
                         });
                     </script>
                 </div>

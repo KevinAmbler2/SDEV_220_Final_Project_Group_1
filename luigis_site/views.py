@@ -24,4 +24,5 @@ def cartPage(request):
     return render(request, 'luigis_site/cart.html', {'cartItems': cartItems})
 
 def checkoutPage(request):
-    return render(request, 'luigis_site/checkout.html', {})
+    cartItems = CartItem.objects.all()
+    return render(request, 'luigis_site/checkout.html', {'cartItems': cartItems})
