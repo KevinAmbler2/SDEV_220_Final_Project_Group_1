@@ -57,3 +57,23 @@ def checkoutPage(request):
     tax = round(float(request.GET.get("tax")),2)
     total = round(float(request.GET.get("total")),2)
     return render(request, 'luigis_site/checkout.html', {'subtotal': subtotal, 'tax': tax, 'total': total})
+
+
+def submit_checkout(request):
+    if request.method == 'POST':
+        first_name = request.POST.get('myFName')
+        last_name = request.POST.get('myLName')
+        credit_card = request.POST.get('myCreditCard')
+        total = ('x') # replace with the calculate total function
+
+        current_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        filename = f"checkout_{current_time}.txt"
+        with open(filename, 'w') as file:
+            file.write(f"First Name: {first_name}\n")
+            file.write(f"Last Name: {last_name}\n")
+            file.write(f"Credit Card: {credit_card}\n")
+            file.write(f"Total: {total}\n")
+
+        return render(request, 'luigis_site/confirmed.html')
+    else:
+        return render(request, 'luigis_site/checkout.html')
