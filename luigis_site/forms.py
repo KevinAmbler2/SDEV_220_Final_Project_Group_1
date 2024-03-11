@@ -7,4 +7,11 @@ class MenuForm(forms.ModelForm):
         self.fields['quantity'].label = ""
     class Meta:
         model = MenuItem
-        fields = ('quantity','id',)
+        fields = ('quantity',)
+
+class CartForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(CartForm, self).__init__(*args, **kwargs)
+    class Meta:
+        model = CartItem
+        fields = ()

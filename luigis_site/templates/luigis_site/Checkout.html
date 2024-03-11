@@ -30,16 +30,13 @@
             <main>
                 <br>
                 <h3>Subtotal:</h3>
-                {% for cartItem in cartItems %}
-                    <!--add (price x quantity) to subtotal-->
-                {% endfor %}
-                <p>subtotal</p>
+                ${{ subtotal }}
                 <script>tax = subtotal * TAX_RATE</script>
                 <h3>Tax:</h3>
-                <p>tax</p>
+                ${{ tax }}
                 <script>total = subtotal + tax</script>
                 <h3>Total:</h3>
-                <p>total</p>
+                ${{ total }}
                 <br>
                 <p>Required Fields are marked with an asterisk*</p>
                 <form method="post" action="https://webdevbasics.net/scripts/demo.php"

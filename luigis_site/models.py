@@ -23,8 +23,8 @@ class MenuItem(models.Model):
 class CartItem(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(null=True,blank=True)
-    price = models.FloatField()
-    quantity = models.IntegerField()
+    price = models.FloatField(null=True)
+    quantity = models.IntegerField(null=True)
     id = models.IntegerField(primary_key=True)
 
     def publish(self):

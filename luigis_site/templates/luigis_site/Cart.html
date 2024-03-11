@@ -26,10 +26,7 @@
         <div id="wrapper">
             <div id="newyork"></div>
             <main>
-                {% for menuItem in menuItems %}
-                    <!--check quantity, create CartItem object if quantity not= 0-->
-                {% endfor %}
-                <form action="http://127.0.0.1:8000/checkout/">
+                <form action="http://127.0.0.1:8000/checkout/" id="checkoutForm" name="checkoutForm">
                     <table>
                         <tr>
                             <th>Item</th>
@@ -42,18 +39,21 @@
                                 <td>{{ cartItem.name }}</td>
                                 <td>${{ cartItem.price }}</td>
                                 <td>{{ cartItem.quantity }}</td>
-                                <!--button to remove from list and refresh page-->
-                                <form method="post" class="cart-form">{% csrf_token %}
-                                    <td><button type="submit">Remove</button></td>
+                                <td><button type="button" onclick='var qtyField = "qty_{{ cartItem.id }}";document.all("checkoutForm").action="/cart/";document.all(qtyField).value="";document.all("checkoutForm").submit();'>Remove</button></td>
                                 </form>
                             </tr>
+                            <input type="hidden" name="qty_{{ cartItem.id }}" value="{{ cartItem.quantity }}" />
                         {% endfor %}
+                        <input type="hidden" name="subtotal" value="{{ subtotal }}" />
+                        <input type="hidden" name="total" value="{{ total }}" />
+                        <input type="hidden" name="tax" value="{{ tax }}" />
                         <tr class="buttonRow">
-                            <td class="buttonRow">
+                            <!--<td class="buttonRow">
                                 <form action="http://127.0.0.1:8000/menu/" class="backBtn">
                                     <button class="backBtn" type="submit">Back</button>
                                 </form>
-                            </td>
+                            </td>-->
+                            <td class="buttonRow"></td>
                             <td class="buttonRow"></td>
                             <td class="buttonRow"></td>
                             <td class="buttonRow">
